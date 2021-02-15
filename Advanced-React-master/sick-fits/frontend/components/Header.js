@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Nav from './Nav';
 
 const LogoStyles = styled.h1`
-  background: #9fb8ad;
+  background: var(--primary);
   font-size: 4rem;
   margin-left: 2rem;
   z-index: 2;
