@@ -15,6 +15,8 @@ const GlobalStyles = createGlobalStyle`
  html {
   --red: var(--primary);
   --primary: #9fb8ad;
+  --secondary: #fb743e;
+  --tertiary: #c5d7bd;
   --grey: #3A3A3A;
   --gray: var(--grey);
   --lightGrey: #E1E1E1;
