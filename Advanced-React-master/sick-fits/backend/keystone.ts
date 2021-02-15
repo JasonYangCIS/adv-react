@@ -4,6 +4,7 @@ import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
+import { Product } from './schemas/Products';
 import { User } from './schemas/User';
 import 'dotenv/config';
 
@@ -42,6 +43,7 @@ export default withAuth(
     lists: createSchema({
       // Schema items go in here
       User,
+      Product,
     }),
     ui: {
       // Show UI for ppl who pass this test
