@@ -1,3 +1,4 @@
+// https://colorhunt.co/palette/258165
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 
