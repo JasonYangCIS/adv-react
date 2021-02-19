@@ -1,58 +1,78 @@
 import { useState } from 'react';
 import useForm from '../lib/useForm';
+import Form from './styles/Form';
 
 export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
+    image: '',
     name: 'nice shoes',
-    price: 3434,
+    price: 1337,
     description: 'these are best shoes',
   });
 
   return (
-    <form>
-      <label htmlFor='name'>
-        Name
-        <input
-          type='text'
-          id='name'
-          name='name'
-          placeholder='Name'
-          value={inputs.name}
-          onChange={handleChange}
-        />
-      </label>
+    <Form
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log(inputs);
+      }}
+    >
+      <fieldset>
+        <label htmlFor='image'>
+          Image
+          <input
+            required
+            type='file'
+            id='image'
+            name='image'
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor='name'>
+          Name
+          <input
+            type='text'
+            id='name'
+            name='name'
+            placeholder='Name'
+            value={inputs.name}
+            onChange={handleChange}
+          />
+        </label>
 
-      <label htmlFor='price'>
-        Price
-        <input
-          type='number'
-          id='price'
-          name='price'
-          placeholder='price'
-          value={inputs.price}
-          onChange={handleChange}
-        />
-      </label>
+        <label htmlFor='price'>
+          Price
+          <input
+            type='number'
+            id='price'
+            name='price'
+            placeholder='price'
+            value={inputs.price}
+            onChange={handleChange}
+          />
+        </label>
 
-      <label htmlFor='description'>
-        Description
-        <input
-          type='number'
-          id='description'
-          name='description'
-          placeholder='description'
-          value={inputs.description}
-          onChange={handleChange}
-        />
-      </label>
+        <label htmlFor='description'>
+          Description
+          <textarea
+            id='description'
+            name='description'
+            placeholder='description'
+            value={inputs.description}
+            onChange={handleChange}
+          />
+        </label>
+      </fieldset>
 
-      <button type='button' onClick={clearForm}>
+      <button type='submit'>+ Add Product</button>
+
+      {/* <button type='button' onClick={clearForm}>
         clear form
       </button>
 
       <button type='button' onClick={resetForm}>
         reset form
-      </button>
-    </form>
+      </button> */}
+    </Form>
   );
 }

@@ -17,8 +17,8 @@ export default function useForm(initial = {}) {
     }
 
     if (type === 'file') {
-      // file upload is wonky, this is how we support it
-      value[0] = e.target.files;
+      // array destructuring
+      [value] = e.target.files;
     }
 
     setInputs({
