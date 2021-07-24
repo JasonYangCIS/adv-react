@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useForm(initial = {}) {
   // create a state obj for our input
   const [inputs, setInputs] = useState(initial);
-  // {
-  //   name: 'jason',
-  //   description: 'nice shoes',
-  //   price: 1000
-  // }
+
+  // take all values of object, convert to array and then convert to string so we can watch for changes
+  const initialValues = Object.values(initial).join('');
+
+  useEffect(() => {
+    setInputs(initial);
+  }, [initialValues]);
 
   function handleChange(e) {
     let { value, name, type } = e.target;

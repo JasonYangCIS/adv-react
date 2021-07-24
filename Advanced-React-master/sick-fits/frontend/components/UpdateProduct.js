@@ -6,13 +6,11 @@ import useForm from '../lib/useForm';
 
 const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
-    query {
-      Product(where: { id: $id }) {
-        id
-        name
-        description
-        price
-      }
+    Product(where: { id: $id }) {
+      id
+      name
+      description
+      price
     }
   }
 `;
@@ -59,7 +57,7 @@ export default function UpdateProduct({ id }) {
         e.preventDefault();
         const res = await updateProduct({
           variables: {
-            id: id,
+            id,
             name: inputs.name,
             description: inputs.description,
             price: inputs.price,
@@ -82,7 +80,6 @@ export default function UpdateProduct({ id }) {
             onChange={handleChange}
           />
         </label>
-
         <label htmlFor='price'>
           Price
           <input
@@ -94,28 +91,19 @@ export default function UpdateProduct({ id }) {
             onChange={handleChange}
           />
         </label>
-
         <label htmlFor='description'>
           Description
           <textarea
             id='description'
             name='description'
-            placeholder='description'
+            placeholder='Description'
             value={inputs.description}
             onChange={handleChange}
           />
         </label>
+
+        <button type='submit'>Update Product</button>
       </fieldset>
-
-      <button type='submit'>Update Product</button>
-
-      {/* <button type='button' onClick={clearForm}>
-        clear form
-      </button>
-
-      <button type='button' onClick={resetForm}>
-        reset form
-      </button> */}
     </Form>
   );
 }
